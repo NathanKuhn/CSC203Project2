@@ -15,7 +15,22 @@ public class FileProcessor {
             while (scan.hasNext()) {
                 // TODO: Process each line of the input file here.
                 String line = scan.nextLine();
-                System.out.println(line);
+                line = line.replaceAll(" ", "");
+                if (line.length() == 0)
+                    continue;
+
+                String[] ops;
+
+                if (line.contains("+")) {
+                    ops = line.split("\\+");
+                    // Handle addition
+                } else if (line.contains("*")) {
+                    ops = line.split("\\*");
+                    // Handle multiplication
+                } else if (line.contains("^")) {
+                    ops = line.split("\\^");
+                    // Handle exponentiation
+                }
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + infile.getPath());
