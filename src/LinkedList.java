@@ -12,15 +12,10 @@ public class LinkedList {
         return length;
     }
 
-
-
     public Node getHead() {
         return head;
     }
 
-    public void setHead(Node head) {
-        this.head = head;
-    }
     public void addNode(int data){
         Node node = new Node(data,null);
         node.setNext(this.head.getNext());
