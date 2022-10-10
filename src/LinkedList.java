@@ -21,13 +21,14 @@ public class LinkedList {
     public void setHead(Node head) {
         this.head = head;
     }
-    public void addNode(Node node){
+    public void addNode(int data){
+        Node node = new Node(data,null);
         this.head.setNext(node);
         this.length +=1;
     }
     public Node pop(){
         Node current = null;
-        for (int i=0; i>this.length; i++){
+        for (int i=0; i<this.length; i++){
             current=this.head.getNext();
         }
         this.length = this.length-1;
