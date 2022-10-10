@@ -13,6 +13,8 @@ public class LinkedListTestCases {
     public void testSetHead() {
        LinkedList x = new LinkedList(new Node(5,null));
        x.addNode(6);
+       assertEquals(x.getHead().getData(),6);
+       assertEquals(x.getLength(),2);
     }
 
 
