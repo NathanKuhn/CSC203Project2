@@ -23,7 +23,8 @@ public class LinkedList {
     }
     public void addNode(int data){
         Node node = new Node(data,null);
-        this.head.setNext(node);
+        node.setNext(this.head.getNext());
+        this.head = node;
         this.length +=1;
     }
     public Node pop(){
