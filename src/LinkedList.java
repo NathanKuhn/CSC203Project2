@@ -2,15 +2,18 @@
 public class LinkedList {
     private int length;
     private Node head;
+    private Node tail;
 
     public LinkedList(Node head) {
         this.length = 1;
         this.head = head;
+        this.tail = head;
     }
 
     public LinkedList() {
         this.length = 0;
         this.head = null;
+        this.tail = null;
     }
 
     public int getLength() {
@@ -21,10 +24,10 @@ public class LinkedList {
         return head;
     }
 
-    public void addNode(int data){
-
+    public void append(int data){
         if (this.head == null) {
             this.head = new Node(data, null);
+            this.tail = this.head;
             length = 1;
             return;
         }
@@ -34,13 +37,34 @@ public class LinkedList {
         this.head = node;
         this.length += 1;
     }
+
+    public void push(int data) {
+        if (this.head == null) {
+            this.head = new Node(data, null);
+            this.tail = this.head;
+            length = 1;
+            return;
+        }
+
+        Node node = new Node(data,null);
+        this.tail.setNext(node);
+        this.tail = node;
+        this.length += 1;
+    }
+
     public int pop(){
 
-        if (this.head == null) return 0;
+        if (length <= 0) {
+            this.head = null;
+            this.tail = null;
+            length = 0;
+            return 0;
+        }
 
         Node temp = this.head;
         this.head = this.head.getNext();
         this.length -= 1;
+
         return temp.getData();
     }
 
@@ -59,7 +83,7 @@ public class LinkedList {
             temp = temp.getNext();
         }
 
-        return total.toString();
+        return total.reverse().toString();
     }
 
     public static LinkedList ParseFromString(String string) {
@@ -68,7 +92,7 @@ public class LinkedList {
         LinkedList ret = new LinkedList(new Node(CharToInt(string.charAt(0)), null));
 
         for (int c = 1; c < string.length(); c++) {
-            ret.addNode(CharToInt(string.charAt(c)));
+            ret.append(CharToInt(string.charAt(c)));
         }
 
         return ret;

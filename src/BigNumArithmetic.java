@@ -31,10 +31,10 @@ public class BigNumArithmetic {
             } else {
                 carry = 0;
             }
-            output.addNode(currentValue);
+            output.push(currentValue);
         }
 
-        if (carry > 0) output.addNode(1);
+        if (carry > 0) output.push(1);
 
         return output;
     }
