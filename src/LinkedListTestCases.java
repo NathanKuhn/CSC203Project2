@@ -23,5 +23,20 @@ public class LinkedListTestCases {
         assertEquals(x.pop(),6);
     }
 
+    @Test
+    public void testStringParsing() {
+        String num = "748291234";
+        LinkedList list = LinkedList.ParseFromString(num);
+        Node n1 = list.getHead();
+        Node n2 = n1.getNext();
+        Node n3 = n2.getNext();
+        Node n4 = n3.getNext();
+        assertEquals(4, n1.getData());
+        assertEquals(3, n2.getData());
+        assertEquals(2, n3.getData());
+        assertEquals(1, n4.getData());
+        assertEquals(list.toString(), "748291234");
+    }
+
 
 }
