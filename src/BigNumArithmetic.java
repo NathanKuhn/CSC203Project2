@@ -16,7 +16,7 @@ public class BigNumArithmetic {
     }
     public static LinkedList add(LinkedList x, LinkedList y){
         int carry =0;
-        LinkedList output = new LinkedList(new Node(-10,null));
+        LinkedList output = new LinkedList();
         LinkedList shorter;
         LinkedList longer;
         if(x.getLength()>y.getLength()){
@@ -27,9 +27,7 @@ public class BigNumArithmetic {
             longer =y;
         }
         int currentValue;
-        int i1 = 1;
-        while(shorter.getHead().getNext()!=null){
-            i1+=1;
+        while(shorter.getHead()!=null){
             if (shorter.pop().getData()+longer.pop().getData()>=10){
                 currentValue = shorter.pop().getData()+longer.pop().getData()%10;
                 carry =1;
