@@ -36,9 +36,7 @@ public class LinkedList {
     }
     public Node pop(){
         Node current = null;
-        for (int i=0; i<this.length; i++){
-            current=this.head.getNext();
-        }
+        current=this.head.getNext();
         this.length = this.length-1;
         return current;
     }
