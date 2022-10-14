@@ -20,7 +20,7 @@ public class LinkedListTestCases {
     public void testPop(){
         LinkedList x = new LinkedList(new Node(5,null));
         x.addNode(6);
-        assertEquals(x.pop(),6);
+        assertEquals(x.pop().getData(),6);
     }
 
     @Test

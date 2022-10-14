@@ -27,13 +27,17 @@ public class BigNumArithmetic {
             longer =y;
         }
         int currentValue;
+        int tempx;
+        int tempy;
         while(shorter.getHead()!=null){
-            if (shorter.pop().getData()+longer.pop().getData()>=10){
-                currentValue = shorter.pop().getData()+longer.pop().getData()%10;
+            tempx = shorter.pop().getData();
+            tempy = longer.pop().getData();
+            if (tempx+tempy>=10){
+                currentValue = (tempx+tempy)%10;
                 carry =1;
                 output.addNode(currentValue);
             }else{
-                currentValue = shorter.pop().getData()+longer.pop().getData()+carry;
+                currentValue = tempx+tempy+carry;
                 carry =0;
                 output.addNode(currentValue);
             }
