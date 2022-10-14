@@ -15,31 +15,27 @@ public class BigNumArithmetic {
         FileProcessor.processFile(filePath);
     }
     public static LinkedList add(LinkedList x, LinkedList y){
-        int carry =0;
-        LinkedList output = new LinkedList(new Node(-10,null));
-        LinkedList shorter;
-        LinkedList longer;
-        if(x.getLength()>y.getLength()){
-            shorter = y;
-            longer = x;
-        }else {
-            shorter = x;
-            longer =y;
-        }
+        LinkedList output = new LinkedList();
+
+        int length = x.getLength();
+        if (y.getLength() > length) length = y.getLength();
+
         int currentValue;
-        int i1 = 1;
-        while(shorter.getHead().getNext()!=null){
-            i1+=1;
-            if (shorter.pop().getData()+longer.pop().getData()>=10){
-                currentValue = shorter.pop().getData()+longer.pop().getData()%10;
-                carry =1;
-                output.addNode(currentValue);
-            }else{
-                currentValue = shorter.pop().getData()+longer.pop().getData()+carry;
-                carry =0;
-                output.addNode(currentValue);
+        int carry = 0;
+
+        for (int i = 0; i < length; i++){
+            currentValue = x.pop() + y.pop() + carry;
+            if (currentValue >= 10) {
+                carry = 1;
+                currentValue %= 10;
+            } else {
+                carry = 0;
             }
+            output.addNode(currentValue);
         }
+
+        if (carry > 0) output.addNode(1);
+
         return output;
     }
 

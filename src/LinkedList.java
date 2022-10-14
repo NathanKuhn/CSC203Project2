@@ -34,14 +34,19 @@ public class LinkedList {
         this.head = node;
         this.length += 1;
     }
-    public Node pop(){
+    public int pop(){
 
-        if (this.head == null) return null;
+        if (this.head == null) return 0;
 
         Node temp = this.head;
         this.head = this.head.getNext();
         this.length -= 1;
-        return temp;
+        return temp.getData();
+    }
+
+    public int peek() {
+        if (this.head == null) return 0;
+        return this.head.getData();
     }
 
     public String toString() {
@@ -54,7 +59,7 @@ public class LinkedList {
             temp = temp.getNext();
         }
 
-        return total.reverse().toString();
+        return total.toString();
     }
 
     public static LinkedList ParseFromString(String string) {
