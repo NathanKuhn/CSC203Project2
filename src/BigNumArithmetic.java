@@ -14,5 +14,34 @@ public class BigNumArithmetic {
         String filePath = args[0];
         FileProcessor.processFile(filePath);
     }
+    public static LinkedList add(LinkedList x, LinkedList y){
+        int carry =0;
+        LinkedList output = new LinkedList(new Node(-10,null));
+        LinkedList shorter;
+        LinkedList longer;
+        if(x.getLength()>y.getLength()){
+            shorter = y;
+            longer = x;
+        }else {
+            shorter = x;
+            longer =y;
+        }
+        int currentValue;
+        int i1 = 1;
+        while(shorter.getHead().getNext()!=null){
+            i1+=1;
+            if (shorter.pop().getData()+longer.pop().getData()>=10){
+                currentValue = shorter.pop().getData()+longer.pop().getData()%10;
+                carry =1;
+                output.addNode(currentValue);
+            }else{
+                currentValue = shorter.pop().getData()+longer.pop().getData()+carry;
+                carry =0;
+                output.addNode(currentValue);
+            }
+        }
+        return output;
+    }
+
 }
 
