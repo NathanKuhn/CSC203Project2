@@ -35,10 +35,13 @@ public class LinkedList {
         this.length += 1;
     }
     public Node pop(){
-        Node current = null;
-        current=this.head.getNext();
-        this.length = this.length-1;
-        return current;
+
+        if (this.head == null) return null;
+
+        Node temp = this.head;
+        this.head = this.head.getNext();
+        this.length -= 1;
+        return temp;
     }
 
     public String toString() {

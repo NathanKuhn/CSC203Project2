@@ -50,21 +50,6 @@ public class SampleTest {
                 "2 ^ 40 = 1099511627776", output);
     }
 
-    @Test
-    public void testStringParsing() {
-        String num = "748291234";
-        LinkedList list = LinkedList.ParseFromString(num);
-        Node n1 = list.getHead();
-        Node n2 = n1.getNext();
-        Node n3 = n2.getNext();
-        Node n4 = n3.getNext();
-        assertEquals(4, n1.getData());
-        assertEquals(3, n2.getData());
-        assertEquals(2, n3.getData());
-        assertEquals(1, n4.getData());
-        assertEquals(list.toString(), "748291234");
-    }
-
     /**
      * Gets called after each test method. Need to do this so that we are
      * no longer capturing all printed output and printed stuff appears
