@@ -39,5 +39,35 @@ public class BigNumArithmetic {
         return output;
     }
 
+    public static LinkedList Multiply(LinkedList x, LinkedList y) {
+        LinkedList result = LinkedList.ParseFromString("0");
+        Node x_node = x.getHead();
+        Node y_node;
+        for (int x_i = 0; x_i < x.getLength(); x_i++) {
+            LinkedList addend = new LinkedList();
+            int carry = 0;
+            int digit = 0;
+            y_node = y.getHead();
+            for (int y_i = 0; y_i < y.getLength(); y_i++) {
+                digit = x_node.getData() * y_node.getData() + carry;
+                carry = digit / 10;
+                digit %= 10;
+
+                addend.push(digit);
+
+                y_node = y_node.getNext();
+            }
+            if (carry != 0) {
+                addend.push(carry);
+            }
+            for (int zero = 0; zero < x_i; zero++) {
+                addend.append(0);
+            }
+            result = add(result, addend);
+            x_node = x_node.getNext();
+        }
+        return result;
+    }
+
 }
 

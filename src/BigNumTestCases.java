@@ -42,4 +42,32 @@ public class BigNumTestCases {
         assertEquals("10000000000000000000", BigNumArithmetic.add(x, y).toString());
     }
 
+    @Test
+    public void testMultiply1() {
+        LinkedList x = LinkedList.ParseFromString("17");
+        LinkedList y = LinkedList.ParseFromString("3");
+        assertEquals("51", BigNumArithmetic.Multiply(x, y).toString());
+    }
+
+    @Test
+    public void testMultiply2() {
+        LinkedList x = LinkedList.ParseFromString("3");
+        LinkedList y = LinkedList.ParseFromString("17");
+        assertEquals("51", BigNumArithmetic.Multiply(x, y).toString());
+    }
+
+    @Test
+    public void testMultiply3() {
+        LinkedList x = LinkedList.ParseFromString("189273478123461");
+        LinkedList y = LinkedList.ParseFromString("12341");
+        assertEquals("2335823993521632201", BigNumArithmetic.Multiply(x, y).toString());
+    }
+
+    @Test
+    public void testMultiply4() {
+        LinkedList x = LinkedList.ParseFromString("8732978547892");
+        LinkedList y = LinkedList.ParseFromString("9785497815789");
+        assertEquals("85456542505729358930266788", BigNumArithmetic.Multiply(x, y).toString());
+    }
+
 }
