@@ -70,4 +70,33 @@ public class BigNumTestCases {
         assertEquals("85456542505729358930266788", BigNumArithmetic.Multiply(x, y).toString());
     }
 
+    @Test
+    public void testExp1() {
+        LinkedList x = LinkedList.ParseFromString("3");
+        int exp = 3;
+        assertEquals("27", BigNumArithmetic.Exponent(x, exp).toString());
+    }
+
+    @Test
+    public void testExp2() {
+        //10 ^ 50 = 100000000000000000000000000000000000000000000000000
+        LinkedList x = LinkedList.ParseFromString("10");
+        int exp = 51;
+        assertEquals("1000000000000000000000000000000000000000000000000000", BigNumArithmetic.Exponent(x, exp).toString());
+    }
+
+    @Test
+    public void testExp3() {
+        LinkedList x = LinkedList.ParseFromString("10");
+        int exp = 50;
+        assertEquals("100000000000000000000000000000000000000000000000000", BigNumArithmetic.Exponent(x, exp).toString());
+    }
+
+    @Test
+    public void testExp4() {
+        LinkedList x = LinkedList.ParseFromString("2");
+        int exp = 16;
+        assertEquals("65536", BigNumArithmetic.Exponent(x, exp).toString());
+    }
+
 }

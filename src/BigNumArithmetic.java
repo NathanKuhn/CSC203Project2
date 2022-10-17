@@ -69,5 +69,24 @@ public class BigNumArithmetic {
         return result;
     }
 
+    public static LinkedList Exponent(LinkedList x, int exp) {
+
+        LinkedList residual = LinkedList.ParseFromString("1");
+
+        while (exp > 1) {
+            if (exp % 2 == 0) {
+                x = Multiply(x, x);
+                exp /= 2;
+            } else {
+                residual = Multiply(residual, x);
+                x = Multiply(x, x);
+                exp /= 2;
+            }
+        }
+
+        return Multiply(residual, x);
+
+    }
+
 }
 
