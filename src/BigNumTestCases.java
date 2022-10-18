@@ -89,6 +89,7 @@ public class BigNumTestCases {
     public void testExp3() {
         LinkedList x = LinkedList.ParseFromString("10");
         int exp = 50;
+        //stuff
         assertEquals("100000000000000000000000000000000000000000000000000", BigNumArithmetic.Exponent(x, exp).toString());
     }
 

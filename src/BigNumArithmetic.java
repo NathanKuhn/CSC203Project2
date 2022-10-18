@@ -7,12 +7,13 @@ public class BigNumArithmetic {
      * @param args Command line arguments. Should have exactly one argument: a file name.
      */
     public static void main(String[] args) {
-        if (args.length != 1) {
+        if (args.length != 2) {
             throw new IllegalArgumentException(
-                    "Expected exactly 1 argument: a file name.");
+                    "Expected exactly 2 arguments: an input file name, an output file name");
         }
         String filePath = args[0];
-        FileProcessor.processFile(filePath);
+        String outFilePath = args[1];
+        FileProcessor.processFile(filePath, outFilePath);
     }
     public static LinkedList add(LinkedList x, LinkedList y){
         LinkedList output = new LinkedList();
